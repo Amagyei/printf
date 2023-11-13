@@ -26,36 +26,41 @@ int _printf (const char *format, ...)
 		{
 			ptch(format[i]);
 		}
-		if (format[i] == '%' && format [i + 1] == 'd')
+		else if (format[i] == '%' && format [i + 1] == 'd')
+		{
+			ptch(va_arg(args, signed long));
+			i++;
+		}
+		else if (format[i] == '%' && format [i + 1] == 'f')
 		{
 			ptch(va_arg(args, int));
 			i++;
 		}
-		if (format[i] == '%' && format [i] == 'f')
+		else if (format[i] == '%' && format [i + 1] == 'x')
 		{
 			ptch(va_arg(args, int));
 			i++;
 		}
-		if (format[i] == '%' && format [i] == 'x')
+		else if (format[i] == '%' && format [i + 1] == 'c')
 		{
 			ptch(va_arg(args, int));
 			i++;
 		}
-		if (format[i] == '%' && format [i] == 'c')
+		else if (format[i] == '%' && format [i + 1] == 's')
 		{
 			ptch(va_arg(args, int));
 			i++;
 		}
-		if (format[i] == '%' && format [i + 1] == 's')
+		else if (format[i] == '%' && format [i + 1] == 'c')
 		{
 			ptch(va_arg(args, int));
 			i++;
 		}
-		if (format[i] == '%' && format [i + 1] == 'c')
+		else if (format[i] == '%' && format [i + 1] == '%')
 		{
-			ptch(va_arg(args, int));
+			ptch('%');
 			i++;
-		}`
+		}
 		count++;
 	}
 	va_end(args);
