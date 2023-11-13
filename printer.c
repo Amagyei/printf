@@ -2,7 +2,7 @@
 
 
 /**
- * printf - writes the character c to stdout
+ * _printf - writes the character c to stdout
  * 
  * @format: format specifier
  *
@@ -12,7 +12,7 @@
  *
  */
 
-int printf (const char *format, ...)
+int _printf (const char *format, ...)
 {
 	unsigned int i, count = 0;
 
@@ -22,9 +22,14 @@ int printf (const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		(format[i] != '%')
+		if (format[i] != '%')
 		{
 			ptch(format[i]);
 		}
+		if (format[i] == '%' && format [i] == 'c')
+			ptch(va_arg(args, int)); 
+
+		count++;
 	}
+	return(count);
 }
