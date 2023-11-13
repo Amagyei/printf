@@ -26,11 +26,36 @@ int _printf (const char *format, ...)
 		{
 			ptch(format[i]);
 		}
-		if (format[i] == '%' && format [i + 1] == 'c')
-		{	
+		if (format[i] == '%' && format [i + 1] == 'd')
+		{
 			ptch(va_arg(args, int));
-			i++;       	
+			i++;
 		}
+		if (format[i] == '%' && format [i] == 'f')
+		{
+			ptch(va_arg(args, int));
+			i++;
+		}
+		if (format[i] == '%' && format [i] == 'x')
+		{
+			ptch(va_arg(args, int));
+			i++;
+		}
+		if (format[i] == '%' && format [i] == 'c')
+		{
+			ptch(va_arg(args, int));
+			i++;
+		}
+		if (format[i] == '%' && format [i + 1] == 's')
+		{
+			ptch(va_arg(args, int));
+			i++;
+		}
+		if (format[i] == '%' && format [i + 1] == 'c')
+		{
+			ptch(va_arg(args, int));
+			i++;
+		}`
 		count++;
 	}
 	va_end(args);
