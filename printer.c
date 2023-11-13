@@ -26,10 +26,13 @@ int _printf (const char *format, ...)
 		{
 			ptch(format[i]);
 		}
-		if (format[i] == '%' && format [i] == 'c')
-			ptch(va_arg(args, int)); 
-
+		if (format[i] == '%' && format [i + 1] == 'c')
+		{	
+			ptch(va_arg(args, int));
+			i++;       	
+		}
 		count++;
 	}
+	va_end(args);
 	return(count);
 }
