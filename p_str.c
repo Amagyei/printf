@@ -11,28 +11,28 @@
 
 int p_str(char *s)
 {
-    int count = 0;
+	int count = 0;
 
-    if (!s)
-    {
-        ptch('(');
-        ptch('N');
-        ptch('U');
-        ptch('L');
-        ptch('L');
-        ptch(')');
-        count = 5;
-    }
-    else
-    {
-        while (*s)
-        {
-            if (ptch(*s) == -1)
-                return -1;
-            count++;
-            s++;
-        }
-    }
+	if (!s)
+	{
+		ptch('(');
+		ptch('N');
+		ptch('U');
+		ptch('L');
+		ptch('L');
+		ptch(')');
+		count = 5;
+	}
+	else
+	{
+		while (*s)
+		{
+			if (ptch(*s) == -1)
+				return (-1);
+			count++;
+			s++;
+		}
+	}
 
-    return count;
+	return (count);
 }
