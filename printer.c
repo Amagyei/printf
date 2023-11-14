@@ -12,7 +12,7 @@
 
 int _printf (const char *format, ...)
 {
-	int i, count = 0;
+	unsigned int i, count = 0;
 
 	va_list args;
 
@@ -61,10 +61,9 @@ int _printf (const char *format, ...)
 				ptch('%');
 				i++;
 			}
-		}
+			
 		count++;
 	}
 	va_end(args);
 	return(count);
 }
-s
