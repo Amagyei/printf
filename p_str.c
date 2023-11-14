@@ -7,16 +7,31 @@
  * Return : '-1 or count'
  */
 
+
 int p_str(char *s)
 {
-	int count = 0;
-	
-	while(*s)
-	{
-		if(ptch(*s) == -1)
-			return count = -1;
-		count++;
-		s++;
-	}
-	return count;
+    int count = 0;
+
+    if (!s)
+    {
+        ptch('(');
+        ptch('N');
+        ptch('U');
+        ptch('L');
+        ptch('L');
+        ptch(')');
+        count = 5;
+    }
+    else
+    {
+        while (*s)
+        {
+            if (ptch(*s) == -1)
+                return -1;
+            count++;
+            s++;
+        }
+    }
+
+    return count;
 }
