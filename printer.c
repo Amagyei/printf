@@ -61,7 +61,7 @@ int _printf (const char *format, ...)
 				ptch('%');
 				i++;
 			}
-			
+		}
 		count++;
 	}
 	va_end(args);
