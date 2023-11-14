@@ -12,7 +12,7 @@
 
 int _printf (const char *format, ...)
 {
-	unsigned int i, count = 0;
+	int i, count = 0;
 
 	va_list args;
 
@@ -26,37 +26,19 @@ int _printf (const char *format, ...)
 		}
 		else
 		{
-			i++;
-			if (format[i] == 'd')
-			{
-				ptch(va_arg(args, int));
-			}
-			else if (format[i] == 'f')
-			{
-				ptch(va_arg(args, int));
-			}
-			else if (format[i] == 'x')
-			{
-				ptch(va_arg(args, int));
-			}
-			else if (format[i] == 's')
+			if (format[i] == '%' && format [i + 1] == 's')
 			{
 				count += p_str(va_arg(args, char *));
+				i++;
 			}
-			else if (format[i] == 'c')
+			else if (format[i] == '%' && format [i + 1] == 'c')
 			{
 				ptch(va_arg(args, int));
+				i++;
 			}
-			else if (format[i] == '%')
+			else if (format[i] == '%' && format [i + 1] == '%')
 			{
 				ptch('%');
-			}
-			else
-			{
-				// Handle unknown format specifiers
-                ptch('%');
-                ptch(format[i]);
-                count += 2;
 			}
 		}
 		count++;
