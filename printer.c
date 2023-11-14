@@ -6,8 +6,6 @@
  *
  * @format: format specifier
  *
- *
- *
  * Return: On success 1.
  *
  */
