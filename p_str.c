@@ -1,12 +1,13 @@
 #include "main.h"
 
-/* p_str - print strings
+/**
+ * p_str - writes the character c to stdout
  *
- * Description : 'iterate through a string printing each character
+ * @s: format specifier
  *
- * Return : '-1 or count'
+ * Return: On success 1.
+ *
  */
-
 
 int p_str(char *s)
 {
