@@ -17,22 +17,24 @@ int _printf(const char *format, ...)
         else
         {
             i++; // Move to the next character after '%'
-            switch (format[i])
+            if (format[i] == 'c')
             {
-            case 'c':
                 ptch(va_arg(args, int));
-                break;
-            case 's':
+            }
+            else if (format[i] == 's')
+            {
                 count += p_str(va_arg(args, char *));
-                break;
-            case '%':
+            }
+            else if (format[i] == '%')
+            {
                 ptch('%');
-                break;
-            default:
+            }
+            else
+            {
                 // Handle unknown format specifiers
                 ptch('%');
                 ptch(format[i]);
-                break;
+                count += 2;
             }
             count++;
         }
