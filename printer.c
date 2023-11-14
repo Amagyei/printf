@@ -26,40 +26,48 @@ int _printf (const char *format, ...)
 		}
 		else
 		{
-			if (format[i] == '%' && format [i + 1] == 'd')
+			i++
+			if (format [i] == 'd')
 			{
 				ptch(va_arg(args, int));
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == 'f')
+			else if (format [i] == 'f')
 			{
 				ptch(va_arg(args, int));
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == 'x')
+			else if (format [i] == 'x')
 			{
 				ptch(va_arg(args, int));
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == 'c')
+			else if (format [i] == 'c')
 			{
 				ptch(va_arg(args, int));
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == 's')
+			else if (format [i] == 's')
 			{
 				count += p_str(va_arg(args, char *));
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == 'c')
+			else if (format [i] == 'c')
 			{
 				ptch(va_arg(args, int));
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == '%')
+			else if (format [i] == '%')
 			{
 				ptch('%');
 				i++;
+			}
+			else
+			{
+				// Handle unknown format specifiers
+                ptch('%');
+                ptch(format[i]);
+                count += 2;
 			}
 		}
 		count++;
