@@ -23,6 +23,7 @@ int _printf (const char *format, ...)
 		if (format[i] != '%')
 		{
 			ptch(format[i]);
+			count++;
 		}
 		else
 		{
@@ -34,15 +35,17 @@ int _printf (const char *format, ...)
 			else if (format[i] == '%' && format [i + 1] == 'c')
 			{
 				ptch(va_arg(args, int));
+				count++;
 				i++;
 			}
 			else if (format[i] == '%' && format [i + 1] == '%')
 			{
 				ptch('%');
+				count++;
 				i++;
 			}
 		}
-		count++;
+		
 	}
 	va_end(args);
 	return(count);
