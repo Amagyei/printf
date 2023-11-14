@@ -32,6 +32,16 @@ int _printf(const char *format, ...)
 				count += p_str(va_arg(args, char *));
 				i++;
 			}
+			else if (format[i] == '%' && format[i + 1] == 'd')
+			{
+				count += p_int(va_arg(args, int));
+				i++;
+			}
+			else if (format[i] == '%' && format[i + 1] == 'i')
+			{
+				count += p_int(va_arg(args, int));
+				i++;
+			}
 			else if (format[i] == '%' && format[i + 1] == 'c')
 			{
 				ptch(va_arg(args, int));
