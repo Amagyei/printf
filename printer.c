@@ -3,7 +3,7 @@
 
 /**
  * _printf - writes the character c to stdout
- * 
+ *
  * @format: format specifier
  *
  *
@@ -28,7 +28,7 @@ int _printf (const char *format, ...)
 		}
 		else if (format[i] == '%' && format [i + 1] == 'd')
 		{
-			ptch(va_arg(args, signed long));
+			_printf(va_arg(args, *char));
 			i++;
 		}
 		else if (format[i] == '%' && format [i + 1] == 'f')
