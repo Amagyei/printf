@@ -51,12 +51,14 @@ int _printf (const char *format, ...)
 		}
 		else if (format[i] == '%' && format [i + 1] == 'c')
 		{
-			ptch(va_arg(args, int));
+			count += ptch(va_arg(args, int));
+			count++;
 			i++;
 		}
 		else if (format[i] == '%' && format [i + 1] == '%')
 		{
 			ptch('%');
+			count++;
 			i++;
 		}
 		count++;
