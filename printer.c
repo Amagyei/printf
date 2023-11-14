@@ -1,44 +1,69 @@
 #include "main.h"
 
-int _printf(const char *format, ...)
+
+/**
+ * _printf - writes the character c to stdout
+ *
+ * @format: format specifier
+ *
+ * Return: On success 1.
+ *
+ */
+
+int _printf (const char *format, ...)
 {
-    unsigned int i, count = 0;
-    va_list args;
+	unsigned int i, count = 0;
 
-    va_start(args, format);
+	va_list args;
 
-    for (i = 0; format[i] != '\0'; i++)
-    {
-        if (format[i] != '%')
-        {
-            ptch(format[i]);
-            count++;
-        }
-        else
-        {
-            i++; // Move to the next character after '%'
-            switch (format[i])
-            {
-            case 'c':
-                ptch(va_arg(args, int));
-                break;
-            case 's':
-                count += p_str(va_arg(args, char *));
-                break;
-            case '%':
-                ptch('%');
-                break;
-            default:
-                // Handle unknown format specifiers
-                ptch('%');
-                ptch(format[i]);
-                count += 2;
-                break;
-            }
-            count++;
-        }
-    }
+	va_start (args, format);
 
-    va_end(args);
-    return count;
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] != '%')
+		{
+			ptch(format[i]);
+		}
+		else
+		{
+			if (format[i] == '%' && format [i + 1] == 'd')
+			{
+				ptch(va_arg(args, int));
+				i++;
+			}
+			else if (format[i] == '%' && format [i + 1] == 'f')
+			{
+				ptch(va_arg(args, int));
+				i++;
+			}
+			else if (format[i] == '%' && format [i + 1] == 'x')
+			{
+				ptch(va_arg(args, int));
+				i++;
+			}
+			else if (format[i] == '%' && format [i + 1] == 'c')
+			{
+				ptch(va_arg(args, int));
+				i++;
+			}
+			else if (format[i] == '%' && format [i + 1] == 's')
+			{
+				count += p_str(va_arg(args, char *));
+				i++;
+			}
+			else if (format[i] == '%' && format [i + 1] == 'c')
+			{
+				ptch(va_arg(args, int));
+				i++;
+			}
+			else if (format[i] == '%' && format [i + 1] == '%')
+			{
+				ptch('%');
+				i++;
+			}
+		}
+		count++;
+	}
+	va_end(args);
+	return(count);
 }
