@@ -7,5 +7,7 @@
 
 int ptch(char c);
 int _printf(const char *format, ...);
+int p_str(char *s);
+
 
 #endif

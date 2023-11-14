@@ -26,7 +26,7 @@ int _printf (const char *format, ...)
 		}
 		else if (format[i] == '%' && format [i + 1] == 'd')
 		{
-			_printf(va_arg(args, *char));
+			ptch(va_arg(args, int));
 			i++;
 		}
 		else if (format[i] == '%' && format [i + 1] == 'f')
@@ -46,7 +46,7 @@ int _printf (const char *format, ...)
 		}
 		else if (format[i] == '%' && format [i + 1] == 's')
 		{
-			ptch(va_arg(args, int));
+			p_str(va_arg(args, char *));
 			i++;
 		}
 		else if (format[i] == '%' && format [i + 1] == 'c')
