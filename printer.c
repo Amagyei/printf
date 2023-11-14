@@ -10,13 +10,13 @@
  *
  */
 
-int _printf (const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int i, count = 0;
 
 	va_list args;
 
-	va_start (args, format);
+	va_start(args, format);
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
@@ -27,18 +27,18 @@ int _printf (const char *format, ...)
 		}
 		else
 		{
-			if (format[i] == '%' && format [i + 1] == 's')
+			if (format[i] == '%' && format[i + 1] == 's')
 			{
 				count += p_str(va_arg(args, char *));
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == 'c')
+			else if (format[i] == '%' && format[i + 1] == 'c')
 			{
 				ptch(va_arg(args, int));
 				count++;
 				i++;
 			}
-			else if (format[i] == '%' && format [i + 1] == '%')
+			else if (format[i] == '%' && format[i + 1] == '%')
 			{
 				ptch('%');
 				count++;
