@@ -46,19 +46,17 @@ int _printf (const char *format, ...)
 		}
 		else if (format[i] == '%' && format [i + 1] == 's')
 		{
-			p_str(va_arg(args, char *));
+			count += p_str(va_arg(args, char *));
 			i++;
 		}
 		else if (format[i] == '%' && format [i + 1] == 'c')
 		{
-			count += ptch(va_arg(args, int));
-			count++;
+			ptch(va_arg(args, int));
 			i++;
 		}
 		else if (format[i] == '%' && format [i + 1] == '%')
 		{
 			ptch('%');
-			count++;
 			i++;
 		}
 		count++;
