@@ -20,9 +20,5 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-	_printf("Lengths %d.\n", len);
-	printf("Lengths %d.\n", len2);
-
-
 	return (0);
 }

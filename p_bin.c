@@ -15,6 +15,11 @@ int p_bin(unsigned int n)
 	int *binary_holder = (int *)malloc(count * sizeof(int));
 
 
+	if (binary_holder == NULL)
+	{
+        return -1;
+    }
+
 	while(n > 0)
 	{
 		binary_holder[i] = n % 2;
@@ -27,5 +32,6 @@ int p_bin(unsigned int n)
 	{
 		ptch(binary_holder[i]+ '0');
 	}
+	free(binary_holder);
 	return (count);
 }
