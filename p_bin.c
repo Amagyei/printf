@@ -10,15 +10,9 @@
 
 int p_bin(unsigned int n)
 {
-	int count =0;
+	int count = 0;
 	int i = 0;
-	int *binary_holder = (int *)malloc(count * sizeof(int));
-
-
-	if (binary_holder == NULL)
-	{
-        return -1;
-    }
+	int binary_holder[32];
 
 	while(n > 0)
 	{
@@ -32,6 +26,5 @@ int p_bin(unsigned int n)
 	{
 		ptch(binary_holder[i]+ '0');
 	}
-	free(binary_holder);
 	return (count);
 }
