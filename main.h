@@ -12,6 +12,7 @@ int p_str(char *s);
 int p_int(int n);
 int p_uint(unsigned int n);
 int p_bin(unsigned int n);
+int p_oct(unsigned int n)
 
 
 

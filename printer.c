@@ -59,6 +59,16 @@ int _printf(const char *format, ...)
 				count++;
 				i++;
 			}
+			else if (format[i] == '%' && format[i + 1] == 'u')
+			{
+				count += p_uint(va_arg(args, int));
+				i++;
+			}
+			else if (format[i] == '%' && format[i + 1] == 'd')
+			{
+				count += p_oct(va_arg(args, int));
+				i++;
+			}
 		}
 
 	}
