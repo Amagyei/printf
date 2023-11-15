@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -11,8 +12,8 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("%b", -1024);
-	len2 = printf("11111111111111111111110000000000");
+	len = _printf("%b", UINT_MAX);
+	len2 = printf("11111111111111111111111111111111");
 	fflush(stdout);
 	if (len != len2)
 	{
