@@ -37,11 +37,6 @@ int _printf(const char *format, ...)
 				count += p_int(va_arg(args, int));
 				i++;
 			}
-			else if (format[i] == '%' && format[i + 1] == 'b')
-			{
-				count += p_bin(va_arg(args, int));
-				i++;
-			}
 			else if (format[i] == '%' && format[i + 1] == 'i')
 			{
 				count += p_int(va_arg(args, int));

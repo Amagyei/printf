@@ -10,6 +10,7 @@ int _printf(const char *format, ...);
 int p_str(char *s);
 int p_int(int n);
 int p_uint(unsigned int n);
+int p_bin(int n);
 
 
 
