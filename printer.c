@@ -69,6 +69,11 @@ int _printf(const char *format, ...)
 				count += p_oct(va_arg(args, int));
 				i++;
 			}
+			if (format[i] == '%' && format[i + 1] == 'S')
+			{
+				count += p_str(va_arg(args, char *));
+				i++;
+			}
 		}
 
 	}
