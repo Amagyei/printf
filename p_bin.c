@@ -8,15 +8,15 @@
  * Return : -1 or binary digit
  */
 
-int p_bin(int n)
+int p_bin(unsigned int n)
 {
-	int i = 0;
-	int bin_holder[32];
+	int count =0;
 
-	while(n > 1)
+	while(n > 0)
 	{
-		bin_holder[i] = (n % 2);
-		i++;
+		ptch((int)(n % 2) + '0');
+		n = n / 2;
+		count++;
 	}
-	return (p_uint(bin_holder[32]));
+	return (count);
 }
