@@ -11,12 +11,21 @@
 int p_bin(unsigned int n)
 {
 	int count =0;
+	int i = 0;
+	int *binary_holder = (int *)malloc(count * sizeof(int));
+
 
 	while(n > 0)
 	{
-		ptch((int)(n % 2) + '0');
+		binary_holder[i] = n % 2;
 		n = n / 2;
+		i++;
 		count++;
+	}
+
+	for(i = count - 1; i >= 0; i--)
+	{
+		ptch(binary_holder[i]+ '0');
 	}
 	return (count);
 }
